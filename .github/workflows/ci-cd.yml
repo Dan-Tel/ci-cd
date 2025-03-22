@@ -68,7 +68,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           build_directory: './dist'
       - name: Status check
-        uses: guibranco/github-status-action-v2@latest
+        uses: Sibz/github-status-action@v1.1.1
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           context: Netlify preview
