@@ -1,9 +1,11 @@
 name: GitHub Actions
 on:
   push:
-    - feature/*
+    branches:
+      - feature/*
   pull_request:
-    - main
+    branches:
+      - main
   
 jobs:
   validate-branch-name:
