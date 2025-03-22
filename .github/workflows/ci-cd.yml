@@ -24,9 +24,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
       - name: Run linter
-        uses: npm run lint
+        run: npm run lint
   test:
     runs-on: ubuntu-latest
     steps:
