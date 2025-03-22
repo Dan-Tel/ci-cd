@@ -62,8 +62,12 @@ jobs:
       - name: Run build
         run: npm run build
       - name: Deploy to Netlify
+        id: netlify_deploy
         uses: jsmrcaga/action-netlify-deploy@v2.4.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           build_directory: './dist'
+      - name: Log
+        run |
+          echo "Preview URL: ${{ steps.netlify_deploy.outputs.NETLIFY_PREVIEW_URL }}"
