@@ -68,4 +68,5 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           build_directory: './dist'
       - name: Log
-        run: echo "Preview URL: ${{ env.NETLIFY_PREVIEW_URL }}"
+        run: |
+          echo "Preview URL: ${{ env.NETLIFY_PREVIEW_URL }}"
