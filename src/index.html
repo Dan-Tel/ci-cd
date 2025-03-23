@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="./assets/svg/empty-cart-icon.svg" />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;400;500&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <title>Online-store</title>
   </head>
@@ -40,7 +42,7 @@
       </main>
       <section id="promo" class="promo">
         <div class="container">
-          <img class="promo__photo" src="assets/img/eucalypt.png" alt="eucalypt" />
+          <img class="promo__photo" src="assets/img/eucalypt.webp" alt="eucalypt" />
           <div class="promo__container">
             <h3 class="promo__title">Get <span>10% OFF</span> on your purchase</h3>
             <div class="promo__descr">Use promo codes:</div>
@@ -74,7 +76,12 @@
             <ul class="footer__list">
               <li class="footer__item">
                 <a href="https://rs.school/js/" target="_blank"
-                  ><img class="rs-school__img" alt="RS School logo" src="./assets/svg/rs_school.svg" width="80"
+                  ><img
+                    class="rs-school__img"
+                    alt="RS School logo"
+                    src="./assets/svg/rs_school.svg"
+                    width="80"
+                    height="29"
                 /></a>
               </li>
               <li class="footer__item"><span>2022</span></li>
