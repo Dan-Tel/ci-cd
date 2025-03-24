@@ -4,24 +4,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
-const optimization = devMode
-  ? {
-      minimize: true,
-      minimizer: [new TerserPlugin()],
-    }
-  : null;
 
 module.exports = {
   mode,
   target,
   devtool,
-  optimization,
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -70,7 +62,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+            },
+          },
+        ],
       },
       {
         test: /\.woff2?$/i,
